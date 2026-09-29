@@ -1,0 +1,47 @@
+{{!-- views/cadastrarFilme.handlebars --}}
+<h1 class="h3 mb-3">Cadastrar filme</h1>
+
+{{#unless diretores.length}}
+  <div class="alert alert-warning">Cadastre um <a href="/diretores/cadastrar" class="alert-link">diretor</a> antes de cadastrar filmes.</div>
+{{/unless}}
+
+<form action="/filmes/cadastrar" method="POST" class="bg-white p-4 rounded-3 shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="titulo">Título</label>
+    <input class="form-control" type="text" id="titulo" name="titulo" required>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="genero">Gênero</label>
+      <input class="form-control" type="text" id="genero" name="genero" placeholder="Ação, Drama...">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="ano">Ano</label>
+      <input class="form-control" type="number" id="ano" name="ano" min="1888" max="2100">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="duracao">Duração (min)</label>
+      <input class="form-control" type="number" id="duracao" name="duracao" min="1">
+    </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="diretorId">Diretor</label>
+    <select class="form-select" id="diretorId" name="diretorId" required>
+      <option value="">Selecione...</option>
+      {{#each diretores}}<option value="{{id}}">{{nome}}</option>{{/each}}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label" for="artistas">Elenco (Ctrl/Cmd para vários)</label>
+    <select class="form-select" id="artistas" name="artistas" multiple size="5">
+      {{#each artistas}}<option value="{{id}}">{{nome}}</option>{{/each}}
+    </select>
+  </div>
+  <div class="mb-4">
+    <label class="form-label" for="sinopse">Sinopse</label>
+    <textarea class="form-control" id="sinopse" name="sinopse" rows="3"></textarea>
+  </div>
+  {{!-- Submissão via input submit estilizado com utilitários --}}
+  <input type="submit" value="Salvar filme" class="bg-success text-white border-0 rounded px-4 py-2">
+  <a href="/filmes" class="text-secondary ms-3">Cancelar</a>
+</form>

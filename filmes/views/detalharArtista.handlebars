@@ -1,0 +1,16 @@
+{{!-- views/detalharArtista.handlebars --}}
+<a href="/artistas" class="text-decoration-none">&larr; Voltar</a>
+<div class="card shadow-sm mt-3">
+  <div class="card-body">
+    <h1 class="h3">{{artista.nome}} <span class="badge text-bg-{{corStatus artista.status}}">{{artista.status}}</span></h1>
+    <p class="mb-1"><strong>Nacionalidade:</strong> {{artista.nacionalidade}}</p>
+    <p><strong>Nascimento:</strong> {{data artista.dataNascimento}}</p>
+    <hr>
+    <p class="mb-1"><strong>Filmes:</strong></p>
+    {{#each artista.Filmes}}
+      <a href="/filmes/{{id}}"><span class="badge text-bg-primary">{{titulo}}</span></a>
+    {{else}}
+      <div class="alert alert-info mb-0">Sem filmes vinculados.</div>
+    {{/each}}
+  </div>
+</div>

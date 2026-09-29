@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo Cinematográfico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+  <!-- COMPONENTE 1: NAVBAR  -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="/"> Catálogo</a>
+      <a class="navbar-toggler" data-bs-toggle="collapse" href="#menuPrincipal"
+         aria-controls="menuPrincipal" aria-expanded="false" aria-label="Alternar menu">
+        <span class="navbar-toggler-icon"></span>
+      </a>
+      <div class="collapse navbar-collapse" id="menuPrincipal">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
+          <li class="nav-item"><a class="nav-link" href="/filmes">Filmes</a></li>
+          <li class="nav-item"><a class="nav-link" href="/artistas">Artistas</a></li>
+          <li class="nav-item"><a class="nav-link" href="/diretores">Diretores</a></li>
+          <li class="nav-item"><a class="nav-link" href="/fichas">Fichas Técnicas</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container pb-5">
+    <!-- COMPONENTE 2: ALERT -->
+    {{#if aviso}}
+      <div class="alert alert-{{aviso.tipo}} alert-dismissible fade show" role="alert">
+        {{aviso.texto}}
+        <!-- Fechar como link simples -->
+        <a href="#" class="float-end text-reset text-decoration-none fw-bold" data-bs-dismiss="alert" aria-label="Fechar">&times;</a>
+      </div>
+    {{/if}}
+
+    {{{body}}}
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

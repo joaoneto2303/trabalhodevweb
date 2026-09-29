@@ -1,0 +1,26 @@
+{{!-- views/detalharFilme.handlebars --}}
+<a href="/filmes" class="text-decoration-none">&larr; Voltar</a>
+<div class="card shadow-sm mt-3">
+  <div class="card-body">
+    <h1 class="h3">{{filme.titulo}}</h1>
+    <p>
+      <span class="badge text-bg-info">{{filme.genero}}</span>
+      <span class="badge text-bg-secondary">{{filme.ano}}</span>
+      <span class="badge text-bg-dark">{{filme.duracao}} min</span>
+    </p>
+    <p>{{filme.sinopse}}</p>
+    <hr>
+    <p class="mb-1"><strong>Diretor:</strong>
+      {{#if filme.Diretor}}<a href="/diretores/{{filme.Diretor.id}}">{{filme.Diretor.nome}}</a>{{else}}-{{/if}}
+    </p>
+    <p class="mb-1"><strong>Elenco:</strong>
+      {{#each filme.Artistas}}
+        <a href="/artistas/{{id}}"><span class="badge text-bg-success">{{nome}}</span></a>
+      {{else}}-{{/each}}
+    </p>
+    <p class="mb-0"><strong>Ficha técnica:</strong>
+      {{#if filme.FichaTecnica}}<a href="/fichas/{{filme.FichaTecnica.id}}">Ver ficha</a>
+      {{else}}<a href="/fichas/cadastrar">Cadastrar ficha</a>{{/if}}
+    </p>
+  </div>
+</div>

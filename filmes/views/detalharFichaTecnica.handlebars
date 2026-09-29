@@ -1,0 +1,15 @@
+{{!-- views/detalharFichaTecnica.handlebars --}}
+<a href="/fichas" class="text-decoration-none">&larr; Voltar</a>
+<div class="card shadow-sm mt-3">
+  <div class="card-body">
+    <h1 class="h3">Ficha técnica: <a href="/filmes/{{ficha.Filme.id}}">{{ficha.Filme.titulo}}</a></h1>
+    <p>
+      <span class="badge text-bg-warning">Classificação: {{ficha.classificacao}}</span>
+      <span class="badge text-bg-info">{{ficha.idioma}}</span>
+      <span class="badge text-bg-secondary">{{ficha.paisOrigem}}</span>
+    </p>
+    <p class="mb-1"><strong>Roteiro:</strong> {{ficha.roteiro}}</p>
+    <p class="mb-1"><strong>Produtora:</strong> {{ficha.produtora}}</p>
+    <p class="mb-0"><strong>Orçamento:</strong> US$ {{ficha.orcamento}} mi</p>
+  </div>
+</div>

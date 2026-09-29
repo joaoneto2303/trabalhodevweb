@@ -1,0 +1,29 @@
+{{!-- views/fichasTecnicas.handlebars : listagem em TABLE --}}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 mb-0">Fichas técnicas <span class="badge text-bg-secondary">{{fichas.length}}</span></h1>
+  <a href="/fichas/cadastrar" class="text-decoration-none bg-primary text-white rounded px-3 py-2">+ Nova ficha</a>
+</div>
+
+{{#if fichas.length}}
+<div class="table-responsive">
+  <table class="table table-hover table-striped align-middle bg-white">
+    <thead class="table-dark">
+      <tr><th>Filme</th><th>Produtora</th><th>Idioma</th><th>Classificação</th><th>Orçamento</th><th></th></tr>
+    </thead>
+    <tbody>
+      {{#each fichas}}
+      <tr>
+        <td>{{Filme.titulo}}</td>
+        <td>{{produtora}}</td>
+        <td>{{idioma}}</td>
+        <td><span class="badge text-bg-warning">{{classificacao}}</span></td>
+        <td>US$ {{orcamento}} mi</td>
+        <td><a href="/fichas/{{id}}" class="text-decoration-none">Detalhar</a></td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+{{else}}
+  <div class="alert alert-warning">Nenhuma ficha técnica cadastrada.</div>
+{{/if}}

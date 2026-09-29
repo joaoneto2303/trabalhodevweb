@@ -1,0 +1,16 @@
+{{!-- views/detalharDiretor.handlebars --}}
+<a href="/diretores" class="text-decoration-none">&larr; Voltar</a>
+<div class="card shadow-sm mt-3">
+  <div class="card-body">
+    <h1 class="h3">{{diretor.nome}}</h1>
+    <p class="mb-1"><strong>Nacionalidade:</strong> {{diretor.nacionalidade}}</p>
+    <p><strong>Nascimento:</strong> {{data diretor.dataNascimento}}</p>
+    <hr>
+    <p class="mb-1"><strong>Filmes dirigidos:</strong></p>
+    {{#each diretor.Filmes}}
+      <a href="/filmes/{{id}}"><span class="badge text-bg-primary">{{titulo}} ({{ano}})</span></a>
+    {{else}}
+      <div class="alert alert-info mb-0">Sem filmes vinculados.</div>
+    {{/each}}
+  </div>
+</div>

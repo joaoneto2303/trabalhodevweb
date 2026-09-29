@@ -1,0 +1,29 @@
+{{!-- views/filmes.handlebars : listagem em CARDS --}}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 mb-0">Filmes</h1>
+  <a href="/filmes/cadastrar" class="text-decoration-none bg-primary text-white rounded px-3 py-2">+ Novo filme</a>
+</div>
+
+<div class="row g-3">
+  {{#each filmes}}
+    <div class="col-sm-6 col-lg-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h2 class="card-title h5">{{titulo}}</h2>
+          <p class="mb-2">
+            <span class="badge text-bg-info">{{genero}}</span>
+            <span class="badge text-bg-secondary">{{ano}}</span>
+            <span class="badge text-bg-dark">{{duracao}} min</span>
+          </p>
+          <p class="card-text small text-secondary mb-1">Direção: {{#if Diretor}}{{Diretor.nome}}{{else}}-{{/if}}</p>
+          <p class="card-text small">{{sinopse}}</p>
+        </div>
+        <div class="card-footer bg-white border-0">
+          <a href="/filmes/{{id}}" class="text-decoration-none fw-semibold">Ver detalhes &rarr;</a>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <div class="col-12"><div class="alert alert-warning">Nenhum filme cadastrado.</div></div>
+  {{/each}}
+</div>

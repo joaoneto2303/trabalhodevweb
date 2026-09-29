@@ -1,0 +1,26 @@
+{{!-- views/cadastrarArtista.handlebars --}}
+<h1 class="h3 mb-3">Cadastrar artista</h1>
+<form action="/artistas/cadastrar" method="POST" class="bg-white p-4 rounded-3 shadow-sm">
+  <div class="mb-3">
+    <label class="form-label" for="nome">Nome</label>
+    <input class="form-control" type="text" id="nome" name="nome" required>
+  </div>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="nacionalidade">Nacionalidade</label>
+      <input class="form-control" type="text" id="nacionalidade" name="nacionalidade">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="dataNascimento">Data de nascimento</label>
+      <input class="form-control" type="date" id="dataNascimento" name="dataNascimento">
+    </div>
+    <div class="col-md-4 mb-3">
+      <label class="form-label" for="status">Status</label>
+      <select class="form-select" id="status" name="status">
+        <option>Ativo</option><option>Aposentado</option><option>Falecido</option>
+      </select>
+    </div>
+  </div>
+  <input type="submit" value="Salvar artista" class="bg-success text-white border-0 rounded px-4 py-2">
+  <a href="/artistas" class="text-secondary ms-3">Cancelar</a>
+</form>
